@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ec">
+  <meta name="description" content="An interactive guide to all 118 chemical elements.">
+  <title>Element Atlas | Interactive Periodic Table</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#top" aria-label="Element Atlas home">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span>ELEMENT <b>ATLAS</b></span>
+      </a>
+      <div class="student-tag"><span class="status-dot"></span> FIELD GUIDE <span class="tag-divider">/</span> CHEMISTRY</div>
+    </header>
+
+    <main id="top">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span>01</span> THE BUILDING BLOCKS OF EVERYTHING</p>
+          <h1 id="page-title">Meet the <em>elements.</em></h1>
+          <p class="intro-text">One table. 118 ways to understand the matter around us.</p>
+        </div>
+        <div class="intro-stamp" aria-label="118 known elements">
+          <span class="stamp-number">118</span>
+          <span class="stamp-label">KNOWN<br>ELEMENTS</span>
+          <span class="stamp-orbit" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Find and filter elements">
+        <label class="search-box">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+          <input id="search" type="search" placeholder="Find by name, symbol or number" autocomplete="off" aria-label="Search elements">
+          <kbd>/</kbd>
+        </label>
+        <label class="filter-wrap">
+          <span class="sr-only">Filter by category</span>
+          <select id="category-filter" aria-label="Filter by category">
+            <option value="all">All categories</option>
+            <option value="alkali-metal">Alkali metals</option>
+            <option value="alkaline-earth">Alkaline earth metals</option>
+            <option value="transition-metal">Transition metals</option>
+            <option value="post-transition-metal">Post-transition metals</option>
+            <option value="metalloid">Metalloids</option>
+            <option value="nonmetal">Other nonmetals</option>
+            <option value="halogen">Halogens</option>
+            <option value="noble-gas">Noble gases</option>
+            <option value="lanthanide">Lanthanides</option>
+            <option value="actinide">Actinides</option>
+            <option value="unknown">Unknown properties</option>
+          </select>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+        </label>
+        <button class="random-button" id="random-button" type="button" title="Pick a random element">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg>
+          <span>Surprise me</span>
+        </button>
+        <p class="result-count" id="result-count" aria-live="polite">118 elements</p>
+      </section>
+
+      <section class="table-section" aria-label="Periodic table">
+        <div class="table-scroll" tabindex="0" aria-label="Scrollable periodic table">
+          <div class="table-layout">
+            <div class="group-headings" aria-hidden="true"></div>
+            <div class="periodic-grid" id="periodic-grid" role="grid" aria-label="Elements arranged by periodic table group and period"></div>
+          </div>
+        </div>
+        <div class="series-labels" aria-hidden="true"><span>6</span><span>Lanthanides</span><span>7</span><span>Actinides</span></div>
+        <div class="legend" aria-label="Element categories">
+          <span class="legend-item"><i class="swatch alkali-metal"></i>Alkali metal</span>
+          <span class="legend-item"><i class="swatch alkaline-earth"></i>Alkaline earth</span>
+          <span class="legend-item"><i class="swatch transition-metal"></i>Transition metal</span>
+          <span class="legend-item"><i class="swatch post-transition-metal"></i>Post-transition</span>
+          <span class="legend-item"><i class="swatch metalloid"></i>Metalloid</span>
+          <span class="legend-item"><i class="swatch nonmetal"></i>Other nonmetal</span>
+          <span class="legend-item"><i class="swatch halogen"></i>Halogen</span>
+          <span class="legend-item"><i class="swatch noble-gas"></i>Noble gas</span>
+          <span class="legend-item"><i class="swatch lanthanide"></i>Lanthanide</span>
+          <span class="legend-item"><i class="swatch actinide"></i>Actinide</span>
+        </div>
+      </section>
+
+      <section class="detail-panel" id="detail-panel" aria-live="polite" aria-label="Selected element details">
+        <div class="detail-identity">
+          <div class="detail-symbol" id="detail-symbol">H</div>
+          <div class="detail-name-wrap">
+            <p class="eyebrow">SELECTED ELEMENT <span id="detail-number">01</span></p>
+            <h2 id="detail-name">Hydrogen</h2>
+          </div>
+        </div>
+        <div class="detail-facts">
+          <div class="fact"><span>ATOMIC NUMBER</span><strong id="fact-number">1</strong></div>
+          <div class="fact"><span>ATOMIC MASS</span><strong id="fact-mass">1.008</strong></div>
+          <div class="fact"><span>GROUP</span><strong id="fact-group">1</strong></div>
+          <div class="fact"><span>PERIOD</span><strong id="fact-period">1</strong></div>
+        </div>
+        <div class="detail-category"><span class="eyebrow">CLASSIFICATION</span><span class="category-pill" id="detail-category">Other nonmetal</span></div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>ELEMENT ATLAS <span class="footer-dot">•</span> A STUDY IN MATTER</span><span>DESIGNED FOR THE CURIOUS</span></footer>
+  </div>
+</body>
+</html>
